@@ -1,5 +1,8 @@
-FROM amazonlinux:2.0.20220606.1
+FROM amazonlinux:2023
 
-RUN yum -y install deltarpm aws-cli procps make gcc gcc-c++ zlib-devel bzip2-devel procps wget tar perl
-
+WORKDIR /root
+RUN dnf -y install aws-cli procps make gcc gcc-c++ zlib-devel bzip2-devel procps wget tar perl
+RUN wget https://github.com/fbreitwieser/krakenuniq/archive/refs/tags/v1.0.4.tar.gz
+RUN tar xzvf v1.0.4.tar.gz
+RUN ./krakenuniq-1.0.4/install_krakenuniq.sh /usr/local/bin/
 WORKDIR /tmp
