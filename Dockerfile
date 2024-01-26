@@ -1,4 +1,4 @@
-FROM amazonlinux:2023
+FROM public.ecr.aws/amazonlinux/amazonlinux:2023
 
 WORKDIR /root
 RUN dnf -y install aws-cli procps make gcc gcc-c++ zlib-devel bzip2-devel procps wget tar perl
